@@ -1,1 +1,1 @@
-console.log("Welcome to Ed's Portfolio!");
+console.log("Welcome to Portfolio!");

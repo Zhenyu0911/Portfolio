@@ -69,6 +69,24 @@ ul {
   margin-top: 10px;
 }
 
+/* Playtest Button */
+.playtest-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.playtest-button:hover {
+  background-color: #63b3ff;
+  color: #111;
+}
+
 /* Contact Icons */
 .contact-icons {
   display: flex;
