@@ -76,15 +76,36 @@ h2 {
 /* About Section */
 .about-wrapper {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  text-align: left;
 }
 
 .profile-pic {
-  width: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ff9800;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #ff9800;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.7;
 }
 
 /* Skills */
@@ -96,17 +117,45 @@ h2 {
 }
 
 .skills-list li {
- background: #eee;
-  color: #000; /* make text visible in light mode */
+  background: #eee;
+  color: #000; /* visible in light mode */
   padding: 1rem 2rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-body.dark .skills li {
+body.dark .skills-list li {
   background: #333;
-  color: #fff; /* make text visible in dark mode */
+  color: #fff; /* visible in dark mode */
+}
+
+/* Tech Stack */
+.tech-stack {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tech-stack span {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #333;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark .tech-stack span {
+  background: #333;
+  color: #eee;
+}
+
+.tech-stack span:hover {
+  background: #ff9800;
+  color: #fff;
 }
 
 /* Projects */
@@ -222,29 +271,13 @@ footer {
     width: 100%;
     max-width: 300px;
   }
-  .tech-stack {
-  margin: 10px 0;
-}
 
-.tech-stack span {
-  display: inline-block;
-  background: #f0f0f0;
-  color: #333;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  transition: background 0.3s, color 0.3s;
-}
+  .about-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
 
-body.dark-mode .tech-stack span {
-  background: #333;
-  color: #eee;
-}
-
-.tech-stack span:hover {
-  background: #ff9800;
-  color: white;
-}
-
+  .about-text {
+    max-width: 100%;
+  }
 }
