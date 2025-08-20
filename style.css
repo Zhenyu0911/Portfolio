@@ -196,13 +196,12 @@ body.dark form button {
 
   .project img {
   width: 100%;
-  max-width: 400px;  /* keeps images from getting too big */
-  height: 220px;     /* fixed height for uniform look */
-  object-fit: cover; /* crops image nicely to fit */
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  max-width: 250px;   /* smaller width */
+  height: 150px;      /* smaller height */
+  object-fit: cover;  /* keeps aspect ratio clean */
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   margin-bottom: 1rem;
 }
-
 
 }
