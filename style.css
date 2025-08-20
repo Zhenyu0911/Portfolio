@@ -1,75 +1,85 @@
-/* Reset */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; /* Smooth scroll for nav buttons */
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: #fdfdfd;
   color: #333;
-  transition: background 0.3s, color 0.3s;
+  background: #f9f9f9;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
   background: #222;
   color: #fff;
+  padding: 15px 30px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 header .logo {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
-nav ul {
-  list-style: none;
+header nav ul {
   display: flex;
-  gap: 1rem;
+  list-style: none;
+  gap: 20px;
 }
 
-nav ul li a {
+header nav ul li a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-.menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
+header nav ul li a:hover {
+  color: #ff9800;
 }
 
+.menu-btn,
 .dark-btn {
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.2rem;
-  margin-right: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 /* Sections */
 section {
-  padding: 3rem 2rem;
+  padding: 100px 20px;
   max-width: 1000px;
   margin: auto;
 }
 
 h2 {
-  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
+/* About Section */
 .about-wrapper {
   display: flex;
-  gap: 2rem;
+  gap: 20px;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .profile-pic {
@@ -77,130 +87,164 @@ h2 {
   border-radius: 50%;
 }
 
+/* Skills */
 .skills-list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 15px;
 }
 
+.skills-list li {
+ background: #eee;
+  color: #000; /* make text visible in light mode */
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark .skills li {
+  background: #333;
+  color: #fff; /* make text visible in dark mode */
+}
+
+/* Projects */
 .project {
-  margin-bottom: 2rem;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.project-img {
+  width: 250px;
+  border-radius: 8px;
+}
+
+.project-text {
+  max-width: 600px;
 }
 
 .playtest-button {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #333;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #ff9800;
   color: #fff;
-  border-radius: 5px;
   text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 
-.repo-list {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.playtest-button:hover {
+  background: #e68900;
 }
 
-.repo {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
-}
-
+/* Contact */
 form {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  gap: 10px;
+  max-width: 500px;
+  margin: auto;
 }
 
-form input, form textarea {
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+form input,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
 form button {
-  padding: 0.7rem;
+  padding: 10px;
   background: #222;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #ff9800;
 }
 
 .contact-icons {
-  display: flex;
-  gap: 1rem;
-  font-size: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
 }
 
+.icon-link {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #222;
+  transition: color 0.3s;
+}
+
+.icon-link:hover {
+  color: #ff9800;
+}
+
+/* Footer */
 footer {
-  text-align: center;
-  padding: 1rem;
   background: #222;
   color: #fff;
-  margin-top: 2rem;
-}
-
-/* Dark mode */
-body.dark {
-  background: #111;
-  color: #ddd;
-}
-
-body.dark header,
-body.dark footer {
-  background: #000;
-}
-
-body.dark .repo {
-  background: #222;
-  border-color: #444;
-}
-
-body.dark .playtest-button,
-body.dark form button {
-  background: #555;
+  text-align: center;
+  padding: 15px 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  nav ul {
+  header nav {
     display: none;
     flex-direction: column;
-    background: #222;
+    background: #333;
     position: absolute;
     top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 1rem;
+    right: 20px;
+    padding: 10px;
+    border-radius: 6px;
   }
 
-  nav ul.show {
+  header nav.active {
     display: flex;
   }
 
-  .menu-btn {
-    display: block;
-    cursor: pointer;
-  }
-
-  .about-wrapper {
+  .project {
     flex-direction: column;
     text-align: center;
   }
 
-  .project img {
-  width: auto;         /* let the browser keep natural ratio */
-  max-width: 200px;    /* shrink width */
-  height: auto;        /* auto height for ratio */
-  display: block;      /* allows centering */
-  margin: 0 auto 1rem; /* center the image */
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  .project-img {
+    width: 100%;
+    max-width: 300px;
+  }
+  .tech-stack {
+  margin: 10px 0;
 }
+
+.tech-stack span {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .tech-stack span {
+  background: #333;
+  color: #eee;
+}
+
+.tech-stack span:hover {
+  background: #ff9800;
+  color: white;
+}
+
 }

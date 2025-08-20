@@ -1,44 +1,50 @@
+// Toggle mobile menu
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+
+menuToggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
 // Dark mode toggle
 const darkToggle = document.getElementById("darkToggle");
-darkToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  localStorage.setItem("darkMode", document.body.classList.contains("dark"));
-});
-if (localStorage.getItem("darkMode") === "true") {
-  document.body.classList.add("dark");
+
+// Load saved preference on page load
+if (localStorage.getItem("dark-mode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  darkToggle.textContent = "☀️"; // show sun when dark mode is active
+} else {
+  darkToggle.textContent = "🌙"; // show moon when light mode is active
 }
 
-// Mobile menu toggle
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.querySelector("nav ul");
-menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
+// Toggle and save preference
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("dark-mode", "enabled");
+    darkToggle.textContent = "☀️"; // switch to sun
+  } else {
+    localStorage.setItem("dark-mode", "disabled");
+    darkToggle.textContent = "🌙"; // switch to moon
+  }
 });
 
-// Contact form alert
-const contactForm = document.getElementById("contactForm");
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Thank you! Your message has been submitted.");
-  contactForm.reset();
-});
-
-// Fetch GitHub repos dynamically
-const repoList = document.getElementById("repo-list");
-fetch("https://api.github.com/users/Zhenyu0911/repos")
-  .then((res) => res.json())
-  .then((repos) => {
-    repoList.innerHTML = "";
-    repos.slice(0, 6).forEach((repo) => {
-      const div = document.createElement("div");
-      div.classList.add("repo");
-      div.innerHTML = `
-        <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-        <p>${repo.description || "No description available."}</p>
-      `;
-      repoList.appendChild(div);
-    });
-  })
-  .catch(() => {
-    repoList.innerHTML = "Unable to load repositories.";
-  });
+// Dark mode style
+const style = document.createElement("style");
+style.innerHTML = `
+  body.dark-mode {
+    background: #121212;
+    color: #eee;
+  }
+  body.dark-mode header {
+    background: #000;
+  }
+  body.dark-mode .playtest-button {
+    background: #ff5722;
+  }
+  body.dark-mode form button {
+    background: #555;
+  }
+`;
+document.head.appendChild(style);
