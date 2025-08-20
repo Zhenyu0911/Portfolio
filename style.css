@@ -193,4 +193,13 @@ body.dark form button {
     flex-direction: column;
     text-align: center;
   }
+
+  .project-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
 }
