@@ -195,13 +195,12 @@ body.dark form button {
   }
 
   .project img {
-  width: 100%;
-  max-width: 250px;   /* smaller width */
-  height: 150px;      /* smaller height */
-  object-fit: cover;  /* keeps aspect ratio clean */
-  border-radius: 8px; 
+  width: auto;         /* let the browser keep natural ratio */
+  max-width: 200px;    /* shrink width */
+  height: auto;        /* auto height for ratio */
+  display: block;      /* allows centering */
+  margin: 0 auto 1rem; /* center the image */
+  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  margin-bottom: 1rem;
 }
-
 }
