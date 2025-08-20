@@ -8,12 +8,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Edward Valera Acuña</h1>
-      <p>Game Developer</p>
-    </header>
+  <header>
+    <div class="logo">Edward V. Acuña</div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#about">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="darkToggle" class="dark-btn"><i class="fas fa-moon"></i></button>
+    <button id="menuToggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+  </header>
 
+  <main>
+    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
       <div class="about-wrapper">
@@ -26,40 +36,54 @@
       </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
       <h2>Tools & Skills</h2>
-      <ul>
+      <ul class="skills-list">
         <li>Unity (C#)</li>
         <li>Visual Studio</li>
         <li>Maya</li>
         <li>Photoshop</li>
-        <li>Github</li>
+        <li>GitHub</li>
       </ul>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
-  <h2>Ongoing Projects</h2>
-  
-  <div class="project">
-    <h3>Hiwaga</h3>
-    <p>
-      A 3D Adventure game set in a fantasy world in which the player must solve and remember the stories and lessons he has been read to as a child to help him push through life.
-    </p>
-    <a href="https://zhenyu0911.itch.io/hiwaga-playtest" target="_blank" class="playtest-button">Playtest Hiwaga</a>
-  </div>
+      <h2>Ongoing Projects</h2>
+      <div class="project">
+        <h3>Hiwaga</h3>
+        <p>
+          A 3D Adventure game set in a fantasy world in which the player must solve and remember the stories and lessons he has been read to as a child to help him push through life.
+        </p>
+        <a href="https://zhenyu0911.itch.io/hiwaga-playtest" target="_blank" class="playtest-button">Playtest Hiwaga</a>
+      </div>
 
-  <div class="project">
-    <h3>No Door Leads Out</h3>
-    <p>
-      “No Door Leads Out” is a 2D first-person, retro-themed horror game where the player explores a never-ending set of rooms, trying to find a way out while being chased by a supernatural being.
-    </p>
-    <a href="https://zhenyu0911.itch.io/no-door-leads-out" target="_blank" class="playtest-button">Playtest No Door Leads Out</a>
-  </div>
+      <div class="project">
+        <h3>No Door Leads Out</h3>
+        <p>
+          “No Door Leads Out” is a 2D first-person, retro-themed horror game where the player explores a never-ending set of rooms, trying to find a way out while being chased by a supernatural being.
+        </p>
+        <a href="https://zhenyu0911.itch.io/no-door-leads-out" target="_blank" class="playtest-button">Playtest No Door Leads Out</a>
+      </div>
+    </section>
 
-</section>
+    <!-- GitHub Section -->
+    <section id="github">
+      <h2>GitHub Repositories</h2>
+      <div id="repo-list" class="repo-list">Loading repos...</div>
+    </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+
       <div class="contact-icons">
         <a href="https://github.com/Zhenyu0911" target="_blank" class="icon-link" title="GitHub">
           <i class="fab fa-github"></i>
@@ -69,10 +93,12 @@
         </a>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <p>&copy; 2025 Ed. All rights reserved.</p>
-    </footer>
-  </div>
+  <footer>
+    <p>&copy; 2025 Ed. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
