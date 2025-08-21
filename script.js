@@ -30,6 +30,48 @@ darkToggle.addEventListener("click", () => {
   }
 });
 
+// ===========================
+// GitHub Repo Fetcher
+// ===========================
+const repoList = document.getElementById("repoList");
+const githubUsername = "Zhenyu0911"; // <-- change this if needed
+
+async function loadRepos() {
+  try {
+    const response = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
+    if (!response.ok) throw new Error("GitHub API error");
+
+    const repos = await response.json();
+
+    // If user has no repos
+    if (repos.length === 0) {
+      repoList.innerHTML = "<p>No repositories found.</p>";
+      return;
+    }
+
+    // Build repo list
+    repoList.innerHTML = "";
+    repos.forEach(repo => {
+      const repoItem = document.createElement("div");
+      repoItem.classList.add("repo-item");
+      repoItem.innerHTML = `
+        <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+        <p>${repo.description ? repo.description : "No description provided."}</p>
+        <small>⭐ ${repo.stargazers_count} | Updated: ${new Date(repo.updated_at).toLocaleDateString()}</small>
+        <hr>
+      `;
+      repoList.appendChild(repoItem);
+    });
+  } catch (error) {
+    repoList.innerHTML = "<p>Failed to load repositories.</p>";
+    console.error(error);
+  }
+}
+
+// Load repos on page load
+loadRepos();
+
+
 // Dark mode style
 const style = document.createElement("style");
 style.innerHTML = `
