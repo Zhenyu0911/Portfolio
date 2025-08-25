@@ -68,6 +68,22 @@ async function loadRepos() {
   }
 }
 
+// EmailJS init (replace with your own user ID)
+emailjs.init("uClOPNZfXGNTeKSaU");
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_c9daiyp", "template_29j79ha", this)
+    .then(() => {
+      alert("✅ Message sent successfully!");
+      document.getElementById("contactForm").reset();
+    }, (error) => {
+      alert("❌ Failed to send. Please try again.");
+      console.log(error);
+    });
+});
+
 // Load repos on page load
 loadRepos();
 
