@@ -29,7 +29,6 @@ darkToggle.addEventListener("click", () => {
     darkToggle.textContent = "🌙"; // switch to moon
   }
 });
-
 // ===========================
 // GitHub Repo Fetcher
 // ===========================
